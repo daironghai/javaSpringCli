@@ -42,7 +42,7 @@
     
     
 	<welcome-file-list>  
-    	<welcome-file>page/index.html</welcome-file>  
+    	<welcome-file>page/index2.html</welcome-file>  
   	</welcome-file-list> 
     
     <!-- session超时定义,单位为分钟 -->

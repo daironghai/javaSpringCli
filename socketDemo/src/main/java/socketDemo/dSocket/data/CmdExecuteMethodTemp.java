@@ -3,8 +3,6 @@ package socketDemo.dSocket.data;
 public class CmdExecuteMethodTemp {
 
 	
-	//方法声明名
-	private String name;
 	
 	//实际方法名
 	private String methodName;
@@ -18,13 +16,6 @@ public class CmdExecuteMethodTemp {
 	
 	
 	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getMethodName() {
 		return methodName;

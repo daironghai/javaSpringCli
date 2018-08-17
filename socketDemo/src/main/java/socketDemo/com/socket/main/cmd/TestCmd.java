@@ -32,6 +32,7 @@ public class TestCmd extends BaseCmd {
 	public void path(){
 		ServletContext sc = ServletContextUtil.getServletContext();
 		String path = sc.getRealPath("");
+		System.out.println(path);
 		sendData(path);
 	}
 	

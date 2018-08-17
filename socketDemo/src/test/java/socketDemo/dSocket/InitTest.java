@@ -8,7 +8,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import socketDemo.dSocket.configurator.CmdHandleConfig;
-import socketDemo.dSocket.data.ExecuteTemp;
+import socketDemo.dSocket.container.CmdContainer;
+import socketDemo.dSocket.data.CmdExecuteClassTemp;
+import socketDemo.dSocket.data.CmdExecuteMethodTemp;
 
 
 
@@ -21,31 +23,36 @@ import socketDemo.dSocket.data.ExecuteTemp;
 public class InitTest {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
 		
-//		Map<String, Object> map = ctx.getBeansWithAnnotation(DsocketNode.class);
-//		Iterator<Entry<String, Object>> scanIt = map.entrySet().iterator();
-//		while(scanIt.hasNext()){
-//			Entry<String, Object> entry = scanIt.next();
-//			System.out.println(entry.getKey());
-//		}
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-mvc.xml");
+		//手动激活
+		CmdHandleConfig.getExecuteMap();
 		
-		Map<String, ExecuteTemp> executeMap = CmdHandleConfig.getExecuteMap();
-		Iterator<Entry<String, ExecuteTemp>> eIt = executeMap.entrySet().iterator();
+		Map<String, CmdExecuteClassTemp> executeMap = CmdContainer.getCmdMap();
+		
+		Iterator<Entry<String, CmdExecuteClassTemp>> eIt = executeMap.entrySet().iterator();
 		while(eIt.hasNext()){
-			Entry<String, ExecuteTemp> entry = eIt.next();
+			Entry<String, CmdExecuteClassTemp> entry = eIt.next();
 			
 			String key = entry.getKey();
-			ExecuteTemp ex = entry.getValue();
+			CmdExecuteClassTemp ex = entry.getValue();
 			
 			System.out.println(key);
-			System.out.println(ex.getClas().getName());
-			System.out.println(ex.getMethodName());
-			System.out.println(ex.getSingleObj());
-			System.out.println("===========");
+			
+			Map<String, CmdExecuteMethodTemp> methodMap = ex.getCmdMethodMap();
+			Iterator<Entry<String, CmdExecuteMethodTemp>> methodIt = methodMap.entrySet().iterator();
+			while(methodIt.hasNext()){
+				Entry<String, CmdExecuteMethodTemp> mEntry = methodIt.next();
+				
+				String name = mEntry.getKey();
+				CmdExecuteMethodTemp mEx = mEntry.getValue();
+				
+				System.out.println("\t" + name);
+			}
+			
 		}
 		
-		
+		System.out.println(1);
 	}
 	
 }

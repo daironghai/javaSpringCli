@@ -17,13 +17,10 @@ import socketDemo.dSocket.handler.MainHandler;
 public class WebSocketConfig extends WebMvcConfigurerAdapter implements WebSocketConfigurer {
 	
 	
-	//跨域访问需要拦截，不得为“*”
-	private final static String[] allow = new String[]{
-		"http://lcoalhost:8020",
-		"http://lcoalhost",
-		"http://lcoalhost:8082",
-		"http://lcoalhost:8082/socketDemo",
-		"http://127.0.0.1:8020"
+	//访问拦截
+	private final static String[] allow = new String[] {
+			"http://lcoalhost:8020", 
+			"http://127.0.0.1:8020"
 	};
 	
 	

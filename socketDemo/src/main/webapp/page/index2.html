@@ -1,27 +1,100 @@
 <!DOCTYPE html>
 <html>
+	
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="utf-8" />
 		<title></title>
-		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
 		
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="lib/dsocket/dsocket.js" ></script>
+		
+		<style>
+			.divMarget{
+				margin-bottom: 20px;
+			}
+		</style>
 	</head>
 	
 	
 	<body>
 		
-		<button class="btn" type="button" id="btn">手动播放</button>
-	
+		<div class="divMarget">
+			url<input type="text" class="form-control" id="cmdUrl">
+			<br>
+			<button class="btn" type="button">连接</button>
+		</div>
+		<div class="divMarget">
+			cmd集<input type="text" class="form-control" id="cmdClass">
+			<br>
+			命令<input type="text" class="form-control" id="cmdFunction">
+			<br>
+			<button class="btn" type="button" id="sendTextCmd">发送</button>
+		</div>
+		<div class="divMarget" id="showLog">
+			
+		</div>
+			
 	</body>
 	
 	
 	<script>
+//		var url = "ws://132.232.51.70:8080/socketDemo/main";
+//		url = null
+//		
+//		Dsocket.init(url, function(e){
+//			console.log(e)
+//		})
+
+
+		//日志打印
+		function logDiv(txt){
+			if(null!=txt && ""!=txt){
+				$("#showLog").append("<div>" + txt + "</div>");
+				console.log(txt)
+			}
+		}
 		
-		$("#btn").on("click", function(){
-			var audio = document.createElement("audio");
-			audio.src = "sound/output.mp3";
-			audio.play();
+		//debug默认测试
+		$("#cmdClass").val("test")
+		$("#cmdFunction").val("getJvm")
+		
+		var ds = new dsocket({
+			//url : "ws://localhost:8082/socketDemo/main123"
+		});
+		ds.test();
+		ds.connect(function(){
+			logDiv("连接成功")
+		}, function(){
+			logDiv("连接失败")
 		});
 		
+		
+		ds.addReceiveMethod("broadcast", function(data){
+			logDiv(JSON.stringify(data))
+			
+			//
+			var audio = document.createElement("audio");
+			audio.src = ds.getSrc(data.src);
+			audio.play();
+		})
+		
+		
+		
+		$("#sendTextCmd").on("click", function(){
+			var cmdClass = $("#cmdClass").val()
+			var cmdFucntion = $("#cmdFunction").val()
+			var url = cmdClass + "/" + cmdFucntion
+			
+			ds.sendTextCmd(url, {
+				name : "小红", age : "123"
+			}, function(data){
+				logDiv(JSON.stringify(data))
+			}, function(e){
+				logDiv("请求失败，" + e)
+			})
+		})
+		
+		
 	</script>
+	
 </html>

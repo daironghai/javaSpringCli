@@ -7,8 +7,6 @@ import java.util.Map;
 public class CmdExecuteClassTemp {
 
 	
-	//声明名称
-	private String cmdClassName;
 	
 	//对象
 	private Class clasTarget;
@@ -21,14 +19,7 @@ public class CmdExecuteClassTemp {
 	//其他配置
 	//...
 	
-
-	public String getCmdClassName() {
-		return cmdClassName;
-	}
-
-	public void setCmdClassName(String cmdClassName) {
-		this.cmdClassName = cmdClassName;
-	}
+	
 
 	public Class getClasTarget() {
 		return clasTarget;
