@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		
+	</head>
+	
+	
+	<body>
+		
+		<button class="btn" type="button" id="btn">手动播放</button>
+	
+	</body>
+	
+	
+	<script>
+		
+		$("#btn").on("click", function(){
+			var audio = document.createElement("audio");
+			audio.src = "sound/output.mp3";
+			audio.play();
+		});
+		
+	</script>
+</html>

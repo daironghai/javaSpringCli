@@ -1,0 +1,208 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dai</groupId>
+  <artifactId>socketDemo</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>socketDemo Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  
+  <properties>
+  	<junit>4.12</junit>
+  	<servlet>3.0.1</servlet>
+  	<springframework.mvc>4.0.0.RELEASE</springframework.mvc>
+  	<springframework.version>4.3.18.RELEASE</springframework.version>
+  	<springframework.aop>1.8.9</springframework.aop>
+  	<quartz>2.2.1</quartz>
+  	<ali.json>1.2.32</ali.json>
+  	<javax.websocket>1.0</javax.websocket>
+  	<springframework.websocket>4.1.4.RELEASE</springframework.websocket>
+  	<jedis>2.6.3</jedis>
+  	<jackson>2.9.5</jackson>
+  	<lang>2.6</lang>
+  </properties>
+  
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- servlet -->
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>javax.servlet-api</artifactId>
+    	<version>${servlet}</version>
+    </dependency>
+    <!-- spring-test -->
+    <dependency>
+		<groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${springframework.version}</version>
+      	<scope>test</scope>
+    </dependency>
+    <!-- spring-mvc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>${springframework.version}</version>
+	</dependency>
+	<!-- spring -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-core</artifactId>
+	    <version>${springframework.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-beans</artifactId>
+	    <version>${springframework.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>${springframework.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-web</artifactId>
+	    <version>${springframework.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>${springframework.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-expression</artifactId>
+	    <version>${springframework.version}</version>
+	</dependency>
+	<!-- spring-aop -->
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>${springframework.aop}</version>
+	</dependency>
+	<!-- quartz -->
+	<dependency>
+	    <groupId>org.quartz-scheduler</groupId>
+	    <artifactId>quartz</artifactId>
+	    <version>${quartz}</version>
+	</dependency>
+    <!-- json -->
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>fastjson</artifactId>
+	    <version>${ali.json}</version>
+	</dependency>
+	<!-- websocket -->
+	<dependency>
+	    <groupId>javax.websocket</groupId>
+	    <artifactId>javax.websocket-api</artifactId>
+	    <version>${javax.websocket}</version>
+	    <scope>provided</scope>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-websocket</artifactId>
+	    <version>${springframework.websocket}</version>
+	</dependency>
+	<dependency>
+         <groupId>redis.clients</groupId>
+         <artifactId>jedis</artifactId>
+         <version>${jedis}</version>
+         <type>jar</type>
+         <scope>compile</scope>
+   	</dependency>
+   	<!-- jackson -->
+   	<dependency>  
+	    <groupId>com.fasterxml.jackson.core</groupId>  
+	    <artifactId>jackson-core</artifactId>  
+	    <version>${jackson}</version>  
+	</dependency>  
+	<dependency>  
+	    <groupId>com.fasterxml.jackson.core</groupId>  
+	    <artifactId>jackson-databind</artifactId>  
+	    <version>${jackson}</version>  
+	</dependency> 
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-annotations</artifactId>
+		<version>${jackson}</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-lang</groupId>
+		<artifactId>commons-lang</artifactId>
+		<version>${lang}</version>
+	</dependency>
+	<!-- 百度ai语音 api -->
+  	<dependency>
+	    <groupId>com.baidu.aip</groupId>
+	    <artifactId>java-sdk</artifactId>
+	    <version>4.1.1</version>
+	</dependency>
+  </dependencies>
+  
+  
+  
+  <build>
+    <finalName>socketDemo</finalName>
+    <plugins>
+    	<!-- 热部署 -->
+    	<plugin>
+    		<groupId>org.apache.tomcat.maven</groupId>
+    		<artifactId>tomcat7-maven-plugin</artifactId>
+    		<version>2.2</version>
+    		<!--
+    		<configuration>
+    			<port>8082</port>
+				<path>/socketDemo</path>
+				<uriEncoding>UTF-8</uriEncoding>
+				<url>http://localhost:8082/manager/text</url>
+				<username>tomcat</username>
+				<password>tomcat</password>
+    		</configuration>
+    		-->
+    		<!-- 132.232.51.70服务器 -->
+    		<configuration>
+    			<port>8080</port>
+				<path>/socketDemo</path>
+				<uriEncoding>UTF-8</uriEncoding>
+				<url>http://132.232.51.70:8080/manager/text</url>
+				<username>eclipse</username>
+				<password>eclipse</password>
+    		</configuration>
+    	</plugin>
+    	<!-- 热部署兼容surefire插件 -->
+    	<plugin>      
+			<groupId>org.apache.maven.plugins</groupId>      	
+			<artifactId>maven-surefire-plugin</artifactId>      	
+			<version>2.6</version>		
+			<configuration>			
+				<skipTests>true</skipTests>		
+			</configuration>      
+	    </plugin>
+	    <!-- 编译插件 -->
+    	<plugin>
+    		<artifactId>maven-compiler-plugin</artifactId>
+    		<configuration>
+    			<source>1.8</source>
+        		<target>1.8</target>
+        		<encoding>utf8</encoding> 
+    		</configuration>
+    	</plugin>
+  	</plugins>
+  </build>
+  
+  
+  
+  	
+  
+  
+</project>
