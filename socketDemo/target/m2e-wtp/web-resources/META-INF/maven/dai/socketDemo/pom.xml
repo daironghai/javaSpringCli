@@ -22,6 +22,7 @@
   	<jedis>2.6.3</jedis>
   	<jackson>2.9.5</jackson>
   	<lang>2.6</lang>
+  	<mssqlJdbc>6.1.7.jre8-preview</mssqlJdbc>
   </properties>
   
   
@@ -147,6 +148,11 @@
 	    <groupId>com.baidu.aip</groupId>
 	    <artifactId>java-sdk</artifactId>
 	    <version>4.1.1</version>
+	</dependency>
+	<dependency>
+		<groupId>com.microsoft.sqlserver</groupId>
+		<artifactId>mssql-jdbc</artifactId>
+		<version>${mssqlJdbc}</version>
 	</dependency>
   </dependencies>
   

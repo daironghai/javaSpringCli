@@ -1,4 +1,4 @@
-package dai.developTest.dbAlone.table.impl;
+package socketDemo.dbAlone.table.impl;
 
 public interface TableHelper {
 

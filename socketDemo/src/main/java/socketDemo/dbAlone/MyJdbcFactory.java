@@ -1,13 +1,13 @@
-package dai.developTest.dbAlone;
+package socketDemo.dbAlone;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import dai.developTest.dbAlone.connect.Mssql_ConnectHelper;
-import dai.developTest.dbAlone.table.Mssql_TableHelperImpl;
-import dai.developTest.dbAlone.table.impl.TableHelper;
-import dai.developTest.dbAlone.transaction.Mssql_TransactionHelper;
-import dai.developTest.dbAlone.transaction.impl.TransactionHelper;
+import socketDemo.dbAlone.connect.Mssql_ConnectHelper;
+import socketDemo.dbAlone.table.Mssql_TableHelperImpl;
+import socketDemo.dbAlone.table.impl.TableHelper;
+import socketDemo.dbAlone.transaction.Mssql_TransactionHelper;
+import socketDemo.dbAlone.transaction.impl.TransactionHelper;
 
 public class MyJdbcFactory {
 

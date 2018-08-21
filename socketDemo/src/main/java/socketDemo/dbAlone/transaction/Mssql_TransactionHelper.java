@@ -1,4 +1,4 @@
-package dai.developTest.dbAlone.transaction;
+package socketDemo.dbAlone.transaction;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import dai.developTest.dbAlone.MyJdbcFactory;
-import dai.developTest.dbAlone.transaction.impl.TransactionHelper;
+import socketDemo.dbAlone.MyJdbcFactory;
+import socketDemo.dbAlone.transaction.impl.TransactionHelper;
 
 public class Mssql_TransactionHelper implements TransactionHelper {
 	
