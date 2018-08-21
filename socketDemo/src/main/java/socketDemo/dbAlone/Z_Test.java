@@ -1,9 +1,9 @@
-package dai.developTest.dbAlone;
+package socketDemo.dbAlone;
 
 import java.sql.ResultSet;
 
-import dai.developTest.dbAlone.transaction.impl.TransactionHelper;
-import dai.developTest.dbAlone.utils.DBUtils;
+import socketDemo.dbAlone.transaction.impl.TransactionHelper;
+import socketDemo.dbAlone.utils.DBUtils;
 
 public class Z_Test {
 

@@ -1,6 +1,6 @@
-package dai.developTest.dbAlone.table;
+package socketDemo.dbAlone.table;
 
-import dai.developTest.dbAlone.table.impl.TableHelper;
+import socketDemo.dbAlone.table.impl.TableHelper;
 
 public class Mssql_TableHelperImpl implements TableHelper {
 
