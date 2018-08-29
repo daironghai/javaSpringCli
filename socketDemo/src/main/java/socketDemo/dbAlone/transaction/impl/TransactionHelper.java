@@ -11,6 +11,9 @@ public interface TransactionHelper {
 
 	public int executeTransaction(List<String> sqlList);
 	
+
+	public int executeTransaction(String[] sqlList);
+	
 	
 	public ResultSet select(String sql);
 	

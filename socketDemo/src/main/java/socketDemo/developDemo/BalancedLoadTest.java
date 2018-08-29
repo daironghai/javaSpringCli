@@ -78,7 +78,7 @@ public class BalancedLoadTest {
 				for (int j = 0; j < weight; j++) {
 					temp = new ServerTemp();
 					temp.ip = string;
-					temp.hash = getHash(string + "@1#" + (j + 1));
+					temp.hash = getHash(string + "&&VN" + (j + 1));
 					serverList.add(temp);
 				}
 			}else{
@@ -214,7 +214,7 @@ public class BalancedLoadTest {
 		
 		//使用率管理
 		t.useLimitMode = true;
-		t.limit = 0.1;
+		t.limit = 0.005;
 		
 		//服务器
 		String[] server = {
@@ -229,7 +229,7 @@ public class BalancedLoadTest {
 //		}
 		
 		//链接次数 - 1万
-		int count = 10000;
+		int count = 10000 * 10;
 		String[] ipC = new String[count];
 		for (int i = 0; i < count; i++) {
 			ipC[i] = t.getRadomIp();

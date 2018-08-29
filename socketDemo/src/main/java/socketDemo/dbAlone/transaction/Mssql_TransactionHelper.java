@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import socketDemo.dbAlone.MyJdbcFactory;
@@ -15,7 +16,7 @@ public class Mssql_TransactionHelper implements TransactionHelper {
 	
 	
 	
-	
+	@Override
 	public int executeTransaction(String sql){
 		if(null==sql && "".equals(sql)){
 			return -1;
@@ -26,7 +27,7 @@ public class Mssql_TransactionHelper implements TransactionHelper {
 	}
 	
 	
-
+	@Override
 	public int executeTransaction(List<String> sqlList){
 		int ret = 0;
 		Connection conn = null;
@@ -54,7 +55,7 @@ public class Mssql_TransactionHelper implements TransactionHelper {
 	}
 
 
-
+	@Override
 	public ResultSet select(String sql) {
 		Connection conn = null;
 		ResultSet rs = null;
@@ -67,6 +68,13 @@ public class Mssql_TransactionHelper implements TransactionHelper {
 			e.printStackTrace();
 		}
 		return rs;
+	}
+
+
+
+	@Override
+	public int executeTransaction(String[] sqlList) {
+		return executeTransaction(Arrays.asList(sqlList));
 	}
 	
 	

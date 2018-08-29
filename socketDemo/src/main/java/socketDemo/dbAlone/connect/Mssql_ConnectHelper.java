@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Component;
+
 //maven包
 //<dependency>
 //<groupId>com.microsoft.sqlserver</groupId>
 //<artifactId>mssql-jdbc</artifactId>
 //<version>6.1.7.jre8-preview</version>
 //</dependency>
+
 
 public final class Mssql_ConnectHelper {
 	

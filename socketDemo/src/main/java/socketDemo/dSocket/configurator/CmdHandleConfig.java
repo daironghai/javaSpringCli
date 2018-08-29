@@ -25,6 +25,9 @@ import socketDemo.dSocket.utils.DsocketSpringContextUtil;
 
 public class CmdHandleConfig {
 
+	//动作和执行间隔标记
+	private final static String CMD_SUBSTRING_KEY = "socketMvc.CMD_SUBSTRING_KEY"; 
+	
 	/**
 	 * cmd执行记录缓存
 	 */
@@ -59,7 +62,7 @@ public class CmdHandleConfig {
 		 *  临时变量
 		 */
 		String cmdName = null;	//命令名
-		String limitTarget = ConfigPropertiesUtils.getProperty("cmdSubstring"); //命令方法之间的分隔符
+		String limitTarget = ConfigPropertiesUtils.getProperty(CmdHandleConfig.CMD_SUBSTRING_KEY); //命令方法之间的分隔符
 		if(null==limitTarget || "".equals(limitTarget)) {
 			limitTarget = "/"; //默认设置
 		}
@@ -132,7 +135,7 @@ public class CmdHandleConfig {
 		CmdExecuteMethodTemp methodTemp = null;
 		Class father = null;
 		
-		String limitTarget = ConfigPropertiesUtils.getProperty("cmdSubstring"); //命令方法之间的分隔符
+		String limitTarget = ConfigPropertiesUtils.getProperty(CmdHandleConfig.CMD_SUBSTRING_KEY); //命令方法之间的分隔符
 		int index = cmdText.indexOf(limitTarget);
 		if(index == -1) {
 			return;

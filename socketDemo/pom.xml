@@ -176,12 +176,12 @@
 				<password>tomcat</password>
     		</configuration>
     		-->
-    		<!-- 132.232.51.70服务器 -->
+    		<!-- 服务器 -->
     		<configuration>
     			<port>8080</port>
 				<path>/socketDemo</path>
 				<uriEncoding>UTF-8</uriEncoding>
-				<url>http://132.232.51.70:8080/manager/text</url>
+				<url>http://:8080/manager/text</url>
 				<username>eclipse</username>
 				<password>eclipse</password>
     		</configuration>
